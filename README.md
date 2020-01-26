@@ -20,6 +20,16 @@ mcBV is licensed under the MIT licence (see [LICENSE.txt](LICENSE.txt)).
 - [F#](http://fsharp.org/)
 - [Z3](https://github.com/Z3Prover/z3)
 
+# Docker usage
+
+```console
+$ docker build -t mcbv .
+$ export FILE=`pwd`/tests/concat2.smt2
+$ docker run -v $(dirname $FILE):/mcBV/host -it mcbv mono /mcBV/bin/Release/mcBV.exe host/$(basename $FILE)
+sat                                                                                                   │                                                                                                     
+0.376016 sec.
+```
+
 # Contributing
 
 To contribute, you will need to complete a [Contributor License
