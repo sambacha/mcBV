@@ -19,7 +19,8 @@ RUN apt-get update && apt-get install -y \
     libgmp-dev \
     make \
     mono-devel \
-    python \
+    python python-pip \
+    time \
     wget
 
 # Dotnet 
@@ -47,3 +48,7 @@ RUN ln -s /mcBV/z3-src/build/Microsoft.Z3.dll /mcBV/z3-mono/Microsoft.Z3.dll
 
 # Build
 RUN xbuild /p:Configuration=Release mcBV.docker.fsproj
+
+# Settings
+ENV PYTHONIOENCODING UTF-8
+
