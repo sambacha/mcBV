@@ -33,11 +33,12 @@ RUN apt-get install -y dotnet-sdk-3.1
 
 WORKDIR /mcBV
 
-# Install z3[B
+# Install z3
+ARG MAKE_J=1
 RUN git clone https://github.com/Z3Prover/z3.git z3-src && \
     cd z3-src && \ 
     python scripts/mk_make.py --dotnet && \
-    cd build && make -j30 && make install
+    cd build && make -j$MAKE_J && make install
 
 # Add mcBV directory
 ADD . /mcBV/
