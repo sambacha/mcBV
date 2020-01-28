@@ -25,7 +25,7 @@ mcBV is licensed under the MIT licence (see [LICENSE.txt](LICENSE.txt)).
 ```console
 $ docker build -t mcbv .
 $ export FILE=`pwd`/tests/concat2.smt2
-$ docker run -v $(dirname $FILE):/mcBV/host -it mcbv mono /mcBV/bin/Release/mcBV.exe host/$(basename $FILE)
+$ docker run -v $(dirname $FILE):/mcBV/host -it --rm mcbv mono /mcBV/bin/Release/mcBV.exe host/$(basename $FILE)
 sat                                                                                                   │                                                                                                     
 0.376016 sec.
 ```
